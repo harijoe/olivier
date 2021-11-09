@@ -10,6 +10,7 @@
 
 import React from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -26,6 +27,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import useVoice from './useVoice';
 
 const Section: React.FC<{
   title: string;
@@ -56,6 +58,7 @@ const Section: React.FC<{
 };
 
 const App = () => {
+  const {start, listening, stop, partialResults} = useVoice();
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -73,9 +76,21 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          {listening ? (
+            <>
+              <Text>Listening…</Text>
+              <Button title="stop" onPress={stop} />
+            </>
+          ) : (
+            <Button title="start" onPress={start} />
+          )}
+          <Text>Results :</Text>
+          {partialResults?.map(e => (
+            <Text>{e}</Text>
+          ))}
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+            Coucou Edit <Text style={styles.highlight}>App.tsx</Text> to change
+            this screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />

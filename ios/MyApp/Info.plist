@@ -51,5 +51,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>Some text for microphone</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+    <string>Some text for speech</string>
 </dict>
 </plist>
