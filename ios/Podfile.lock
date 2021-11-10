@@ -343,6 +343,8 @@ PODS:
     - React-jsi (= 0.66.2)
     - React-logger (= 0.66.2)
     - React-perflogger (= 0.66.2)
+  - RNCAsyncStorage (1.15.11):
+    - React-Core
   - RNPermissions (3.1.0):
     - React-Core
   - Yoga (1.14.0)
@@ -405,6 +407,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -490,6 +493,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   Yoga:
@@ -514,8 +519,8 @@ SPEC CHECKSUMS:
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
-  Permission-Microphone: 7b75718196244a6e59dd60f82f12962562c2ea12
-  Permission-SpeechRecognition: de418c02c92924d9aa25dd0d690dcea1a8d24812
+  Permission-Microphone: 8d496c068d65f9d4ee599b0fdd7ada102a905acf
+  Permission-SpeechRecognition: 34bbb6ab9d47d925edff1fe2c6e1d0c4c5c175dd
   RCT-Folly: a21c126816d8025b547704b777a2ba552f3d9fa9
   RCTRequired: 5e9e85f48da8dd447f5834ce14c6799ea8c7f41a
   RCTTypeSafety: aba333d04d88d1f954e93666a08d7ae57a87ab30
@@ -528,7 +533,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 573adf0d6ce5e05c55872dfde5b1589acb88a96f
   React-jsinspector: b08b2d5e86cef9dc4bb69f0aa0bbe6d210fb7da5
   React-logger: faee236598b0f7e1a5e3b68577016ac451f1f993
-  react-native-voice: 634b2749a0f67676a999e97df4d8220ce59ac738
+  react-native-voice: 448612ac1ecf0781c253b3cc65be4d63b59b2f84
   React-perflogger: 5ab487cacfe6ec19bfe3d3f8072bf71eb07d63da
   React-RCTActionSheet: 03f25695e095fb5aa003828620943c74cc281fec
   React-RCTAnimation: eaf82da39f0c36fb0ef2a28df797c5f73a2a98ea
@@ -541,10 +546,11 @@ SPEC CHECKSUMS:
   React-RCTVibration: 3e815c3d2dd2e0e931b68595b5b92d23ba38b3fb
   React-runtimeexecutor: 393e26602c1b248683372051e34db63e359e3b01
   ReactCommon: c0263c1a41509aeb94be3214fa7bc3b71eae5ef6
-  RNPermissions: 4b54095940aea8c03fa3e6c92d4ac3647b31ed4e
+  RNCAsyncStorage: b4d70dc4bd735a92ce32b6943450c0822a802f04
+  RNPermissions: b3588a19e12bff03fe21bc46911fd32343666dc0
   Yoga: 9a08effa851c1d8cc1647691895540bc168ea65f
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 6a84079993cfc8af59bbdc366a283dd7c02353ad
+PODFILE CHECKSUM: c2982ade6e48079a2ca92105755f23651fd2d88e
 
 COCOAPODS: 1.11.2
