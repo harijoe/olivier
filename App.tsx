@@ -58,7 +58,7 @@ const Section: React.FC<{
 };
 
 const App = () => {
-  const {start, listening, stop, partialResults} = useVoice();
+  const {start, listening, stop, partialResults, results} = useVoice();
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -78,14 +78,25 @@ const App = () => {
           }}>
           {listening ? (
             <>
+              {console.log(Date.now())}
               <Text>Listening…</Text>
               <Button title="stop" onPress={stop} />
             </>
           ) : (
-            <Button title="start" onPress={start} />
+            <Button
+              title="start"
+              onPress={() => {
+                console.log(Date.now());
+                start();
+              }}
+            />
           )}
-          <Text>Results :</Text>
+          <Text>Partial :</Text>
           {partialResults?.map(e => (
+            <Text>{e}</Text>
+          ))}
+          <Text>Results :</Text>
+          {results?.map(e => (
             <Text>{e}</Text>
           ))}
           <Section title="Step One">

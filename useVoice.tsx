@@ -1,18 +1,14 @@
 import Voice, {
   SpeechErrorEvent,
-  SpeechRecognizedEvent,
   SpeechResultsEvent,
 } from '@react-native-voice/voice';
-import React, {Component, useEffect, useState} from 'react';
-import {Image, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
-import {DebugInstructions} from 'react-native/Libraries/NewAppScreen';
+import {useEffect, useState} from 'react';
 
 const useVoice = () => {
-  //   const [recognized, setRecognized] = useState();
   //   const [pitch, setPitch] = useState();
   const [error, setError] = useState('');
   const [listening, setListening] = useState(false);
-  //   const [results, setResults] = useState();
+  const [results, setResults] = useState<string[]>();
   const [partialResults, setPartialResults] = useState<string[]>();
 
   const onSpeechStart = (e: any) => {
@@ -36,14 +32,17 @@ const useVoice = () => {
     setListening(false);
   };
 
+  const onSpeechResults = (e: SpeechResultsEvent) => {
+    console.log('onSpeechResults: ', e);
+    setResults(e.value);
+  };
+
   useEffect(() => {
     Voice.onSpeechStart = onSpeechStart;
-    // Voice.onSpeechRecognized = onSpeechRecognized;
     Voice.onSpeechEnd = onSpeechEnd;
     Voice.onSpeechError = onSpeechError;
-    // Voice.onSpeechResults = onSpeechResults;
+    Voice.onSpeechResults = onSpeechResults;
     Voice.onSpeechPartialResults = onSpeechPartialResults;
-    // Voice.onSpeechVolumeChanged = onSpeechVolumeChanged;
 
     return () => {
       Voice.destroy().then(Voice.removeAllListeners);
@@ -51,11 +50,9 @@ const useVoice = () => {
   }, []);
 
   const start = () => {
-    // setRecognized('');
-    // setPitch('');
     setError('');
-    setListening(true);(false);
-    // setResults([]);
+    setListening(true);
+    setResults([]);
     setPartialResults([]);
 
     Voice.start('fr-FR');
@@ -74,6 +71,7 @@ const useVoice = () => {
     cancel,
     listening,
     partialResults,
+    results,
   };
 };
 
