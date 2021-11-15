@@ -1,11 +1,11 @@
+import React, { createContext, FC } from 'react';
 import { Context, Device } from 'common/types';
-import { createContext, FC } from 'react';
+import { useAuth } from './useAuth';
 import { useGame } from './useGame';
 import { useLibrary } from './useLibrary';
+import { useRoom } from './useRoom';
 import { useSession } from './useSession';
 import { useUsers } from './useUsers';
-import { useAuth } from './useAuth';
-import { useRoom } from './useRoom';
 
 export const AppContext = createContext({} as Context);
 

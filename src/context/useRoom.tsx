@@ -1,13 +1,13 @@
 import { Device, Room } from 'common/types';
 import { DeviceContext } from 'context';
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import feathers from 'services/feathers';
 
 export const useRoom = ({ auth }: { auth: any }) => {
   const [room, setRoom] = useState<Room>();
   const { device } = useContext(DeviceContext);
-  let { room_id } = useParams<{ room_id: string }>();
+  // let { room_id } = useParams<{ room_id: string }>();
 
   // Updates room in context and patch user
   const connectToRoom = async (room_id: string) => {
@@ -21,7 +21,7 @@ export const useRoom = ({ auth }: { auth: any }) => {
 
       setRoom(room);
     } catch (e) {
-      window.alert("Erreur - la room n'existe peut-être pas");
+      // window.alert("Erreur - la room n'existe peut-être pas");
     }
   };
 
@@ -53,7 +53,7 @@ export const useRoom = ({ auth }: { auth: any }) => {
           connectToRoom(user_room_id);
         }
       } else {
-        connectToRoom(room_id);
+        // connectToRoom(room_id);
       }
     };
 

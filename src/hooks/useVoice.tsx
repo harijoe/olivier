@@ -2,7 +2,7 @@ import Voice, {
   SpeechErrorEvent,
   SpeechResultsEvent,
 } from '@react-native-voice/voice';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 const useVoice = () => {
   //   const [pitch, setPitch] = useState();
@@ -12,28 +12,28 @@ const useVoice = () => {
   const [partialResults, setPartialResults] = useState<string[]>();
 
   const onSpeechStart = (e: any) => {
-    console.log('onSpeechStart: ', e);
+    // console.log('onSpeechStart: ', e);
     setListening(true);
   };
 
   const onSpeechPartialResults = (e: SpeechResultsEvent) => {
-    console.log('onSpeechPartialResults: ', e);
+    // console.log('onSpeechPartialResults: ', e);
     setPartialResults(e.value);
   };
 
   const onSpeechEnd = (e: any) => {
-    console.log('onSpeechEnd: ', e);
+    // console.log('onSpeechEnd: ', e);
     setListening(false);
   };
 
   const onSpeechError = (e: SpeechErrorEvent) => {
-    console.log('onSpeechError: ', e);
+    // console.log('onSpeechError: ', e);
     setError(JSON.stringify(e.error));
     setListening(false);
   };
 
   const onSpeechResults = (e: SpeechResultsEvent) => {
-    console.log('onSpeechResults: ', e);
+    // console.log('onSpeechResults: ', e);
     setResults(e.value);
   };
 
