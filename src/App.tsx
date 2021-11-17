@@ -8,6 +8,7 @@ const App = () => {
   return (
     <>
       <Text>{partialResults}</Text>
+      {listening && <Text>Listening</Text>}
       {listening ? (
         <Button
           title="Stop"

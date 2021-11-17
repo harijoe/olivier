@@ -2,6 +2,7 @@ import Voice, {
   SpeechErrorEvent,
   SpeechResultsEvent,
 } from '@react-native-voice/voice';
+import { useInterval } from 'ahooks';
 import { useEffect, useState } from 'react';
 
 const useVoice = () => {
@@ -11,29 +12,34 @@ const useVoice = () => {
   const [results, setResults] = useState<string[]>();
   const [partialResults, setPartialResults] = useState<string[]>();
 
+  useInterval(() => {
+    Voice.isRecognizing().then(e => setListening(!!e));
+  }, 100);
+
   const onSpeechStart = (e: any) => {
     // console.log('onSpeechStart: ', e);
-    setListening(true);
   };
 
   const onSpeechPartialResults = (e: SpeechResultsEvent) => {
     // console.log('onSpeechPartialResults: ', e);
+
     setPartialResults(e.value);
   };
 
   const onSpeechEnd = (e: any) => {
     // console.log('onSpeechEnd: ', e);
-    setListening(false);
   };
 
   const onSpeechError = (e: SpeechErrorEvent) => {
     // console.log('onSpeechError: ', e);
+
+    Voice.stop();
     setError(JSON.stringify(e.error));
-    setListening(false);
   };
 
   const onSpeechResults = (e: SpeechResultsEvent) => {
     // console.log('onSpeechResults: ', e);
+
     setResults(e.value);
   };
 
@@ -50,6 +56,8 @@ const useVoice = () => {
   }, []);
 
   const start = () => {
+    // console.log('start');
+
     setError('');
     setListening(true);
     setResults([]);
@@ -59,9 +67,12 @@ const useVoice = () => {
   };
 
   const stop = () => {
+    // console.log('stopping', Voice);
     Voice.stop();
   };
+
   const cancel = () => {
+    // console.log('cancel', Voice);
     Voice.cancel();
   };
 
