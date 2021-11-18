@@ -33,7 +33,11 @@ const useVoice = () => {
   const onSpeechError = (e: SpeechErrorEvent) => {
     console.log('onSpeechError: ', e);
 
-    Voice.stop();
+    if (e.error && e.error.message === 'Speech recognition already started!') {
+      console.log('stopping');
+      Voice.stop();
+    }
+
     setError(JSON.stringify(e.error));
   };
 
@@ -59,7 +63,7 @@ const useVoice = () => {
     console.log('start');
 
     setError('');
-    setListening(true);
+    // setListening(true);
     setResults([]);
     setPartialResults([]);
 

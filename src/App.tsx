@@ -5,32 +5,22 @@ import { Button, SafeAreaView, Text } from 'react-native';
 const App = () => {
   const { start, listening, stop, partialResults, results } = useVoice();
 
-  const [actionable, setActionable] = useState(true);
-
   return (
     <>
-      <Text>{partialResults}</Text>
+      <Text>{partialResults ? partialResults[0] : ''}</Text>
       {listening && <Text>Listening</Text>}
 
       <Button
         title="Stop"
         onPress={async () => {
-          setActionable(false);
           stop();
-          setTimeout(() => {
-            setActionable(true);
-          }, 2000);
         }}
       />
 
       <Button
         title="Start"
         onPress={async () => {
-          setActionable(false);
           start();
-          setTimeout(() => {
-            setActionable(true);
-          }, 2000);
         }}
       />
     </>
