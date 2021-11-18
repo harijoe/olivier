@@ -487,12 +487,12 @@
 				DEVELOPMENT_TEAM = 34N3ZM3MRH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -515,12 +515,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 34N3ZM3MRH;
 				INFOPLIST_FILE = MyApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

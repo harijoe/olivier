@@ -17,7 +17,7 @@ const useVoice = () => {
   }, 100);
 
   const onSpeechStart = (e: any) => {
-    // console.log('onSpeechStart: ', e);
+    console.log('onSpeechStart: ', e);
   };
 
   const onSpeechPartialResults = (e: SpeechResultsEvent) => {
@@ -27,11 +27,11 @@ const useVoice = () => {
   };
 
   const onSpeechEnd = (e: any) => {
-    // console.log('onSpeechEnd: ', e);
+    console.log('onSpeechEnd: ', e);
   };
 
   const onSpeechError = (e: SpeechErrorEvent) => {
-    // console.log('onSpeechError: ', e);
+    console.log('onSpeechError: ', e);
 
     Voice.stop();
     setError(JSON.stringify(e.error));
@@ -56,7 +56,7 @@ const useVoice = () => {
   }, []);
 
   const start = () => {
-    // console.log('start');
+    console.log('start');
 
     setError('');
     setListening(true);
@@ -67,12 +67,12 @@ const useVoice = () => {
   };
 
   const stop = () => {
-    // console.log('stopping', Voice);
+    console.log('stopping', Voice);
     Voice.stop();
   };
 
   const cancel = () => {
-    // console.log('cancel', Voice);
+    console.log('cancel', Voice);
     Voice.cancel();
   };
 
