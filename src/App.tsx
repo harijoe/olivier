@@ -3,17 +3,17 @@ import React, { useState } from 'react';
 import { Button, SafeAreaView, Text } from 'react-native';
 
 const App = () => {
-  const { start, listening, stop, partialResults, results } = useVoice();
+  const { start, listening, stop, cancel, partialResults, results } =
+    useVoice();
 
   return (
     <>
       <Text>{partialResults ? partialResults[0] : ''}</Text>
-      {listening && <Text>Listening</Text>}
 
       <Button
-        title="Stop"
+        title="Cancel"
         onPress={async () => {
-          stop();
+          cancel();
         }}
       />
 
@@ -23,6 +23,7 @@ const App = () => {
           start();
         }}
       />
+      {listening && <Text>Listening</Text>}
     </>
   );
 };

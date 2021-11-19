@@ -2,7 +2,7 @@ import Voice, {
   SpeechErrorEvent,
   SpeechResultsEvent,
 } from '@react-native-voice/voice';
-import { useInterval } from 'ahooks';
+import { useInterval, useThrottleFn } from 'ahooks';
 import { useEffect, useState } from 'react';
 
 const useVoice = () => {
@@ -59,26 +59,42 @@ const useVoice = () => {
     };
   }, []);
 
-  const start = () => {
-    console.log('start');
-
+  const _start = () => {
+    console.log('STARTING listening????', listening);
     setError('');
-    // setListening(true);
     setResults([]);
     setPartialResults([]);
 
     Voice.start('fr-FR');
   };
 
-  const stop = () => {
-    console.log('stopping', Voice);
+  const { run: start } = useThrottleFn(_start, {
+    trailing: false,
+    leading: true,
+    wait: 2000,
+  });
+
+  const _stop = () => {
+    console.log('STOP ', listening);
     Voice.stop();
   };
 
-  const cancel = () => {
-    console.log('cancel', Voice);
+  const { run: stop } = useThrottleFn(_stop, {
+    trailing: false,
+    leading: true,
+    wait: 2000,
+  });
+
+  const _cancel = () => {
+    console.log('cancel ', listening);
     Voice.cancel();
   };
+
+  const { run: cancel } = useThrottleFn(_cancel, {
+    trailing: false,
+    leading: true,
+    wait: 2000,
+  });
 
   return {
     start,
